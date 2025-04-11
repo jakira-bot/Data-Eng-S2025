@@ -1,3 +1,5 @@
+#Note this code worked in google colab unsure if it will work outside that enviroment.
+
 import requests, json
 api_key = "369cf0dece4af158a73130d55460f8aa"
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
