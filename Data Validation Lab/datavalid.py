@@ -15,11 +15,11 @@ print(df.index)
 print(df['hire_date'].dtype)
 
 #checks for number of empty name fields
-exist1 = df[df['name'] == None]
+exist1 = df[df['name'].isnull()]
 print(len(exist1))
 
 #checks for number of empty title fields
-exist2 = df[df['title'] == None]
+exist2 = df[df['title'].isnull()]
 print(len(exist2))
 
 #checks to see who if anyone was hired before 2015
@@ -49,7 +49,11 @@ print(len(intra2))
 unq1 = df['reports_to'].unique()
 unq2 = df['eid'].unique()
 sec = np.intersect1d(unq1, unq2)
-print(len(unq1) - len(sec))
+test1 = df['reports_to'].value_counts()
+sum = 0
+for x in sec:
+  sum += test1[x]
+print(sum)
 
 #check to see if an employee's hire year matches another's birth year
 mod = df
